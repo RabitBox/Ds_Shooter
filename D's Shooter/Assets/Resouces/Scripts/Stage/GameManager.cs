@@ -2,13 +2,13 @@
 using System.Collections;
 
 // ゲームの次元モード
-enum DimensionMode{
+public enum DimensionMode{
 	Mode2D,		// 2Dモード
 	Mode3D,		// 3Dモード
 };
 
 // ステージのプレイモード
-enum NowPlayMode{
+public enum NowPlayMode{
 	Play,		// プレイ
 	Pouse,		// ポーズ
 	Continue,	// To Be Continue?
