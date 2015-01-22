@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InputManager : MonoBehaviour {
-
+	Color c;
 	// Use this for initialization
 	void Start () {
 	
