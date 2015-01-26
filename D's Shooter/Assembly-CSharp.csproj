@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resouces\Scripts\Easing.cs" />
      <Compile Include="Assets\Resouces\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Resouces\Scripts\Stage\GameCameraMove.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GameManager.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer.cs" />
  <Reference Include="UnityEngine.UI">
