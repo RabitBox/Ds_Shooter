@@ -13,7 +13,8 @@ public class GamePlayer : MonoBehaviour {
 	private InputManager _InputManager;
 	private PlayerState _State = PlayerState.Phantom;
 	private int PhantomTimer = 0;
-	[SerializeField] int PhantomTime = 120;
+	[SerializeField] private int PhantomTime = 120;
+	[SerializeField] private float Speed = 5f;
 
 	// Use this for initialization
 	void Start () {
@@ -33,10 +34,12 @@ public class GamePlayer : MonoBehaviour {
 				}else{
 					_State = PlayerState.Live;
 				}
+				Action();
+				break;
+
 			case PlayerState.Live:		// 生存
 				if(PhantomTimer > 0) _State = PlayerState.Phantom;
-				Move ();
-				Shot ();
+				Action();
 				break;
 
 			case PlayerState.Dead:		// 死亡
@@ -46,11 +49,38 @@ public class GamePlayer : MonoBehaviour {
 		}
 	}
 
+	//--------------------------------------------------
+	//--------------------------------------------------
+	// 行動系管理
+	void Action(){
+		Move ();
+		Revise();
+		Shot ();
+	}
+
+	// 移動
 	void Move(){
+		Vector2 dir = _InputManager.Direction() * Speed;
+		switch(_GameManager.Dimension){
+		case DimensionMode.Mode2D:
+			this.rigidbody.velocity = new Vector3(dir.x, 0f, dir.y);
+			break;
 
+		case DimensionMode.Mode3D:
+			this.rigidbody.velocity = new Vector3(dir.x, dir.y, 0f);
+			break;
+		}
 	}
 
+	// 補正
+	void Revise(){
+		
+	}
+
+	// ショット
 	void Shot(){
-
+		
 	}
+	//--------------------------------------------------
+	//--------------------------------------------------
 }
