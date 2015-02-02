@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GamePlayerShooter : MonoBehaviour {
+public class GamePlayerDChanger : MonoBehaviour {
 	private GameManager _GameManager;
 	private InputManager _InputManager;
 	private GamePlayer _GamePlayer;
@@ -20,24 +20,19 @@ public class GamePlayerShooter : MonoBehaviour {
 			switch(_GamePlayer.State)
 			{
 			case PlayerState.Phantom:
-				CreateShot("A");
+				ChangeDimension("C");
 				break;
 				
 			case PlayerState.Live:
-				CreateShot("A");
+				ChangeDimension("C");
 				break;
 			}
 		}
 	}
 
-	void CreateShot(string InputString){
-		if(_InputManager.InputStay(InputString)){
-
+	void ChangeDimension(string InputString){
+		if(_InputManager.InputDown(InputString)){
+			_GameManager.ChangeDimension();
 		}
-	}//*/
-
-	/*void CreateBomb(string InputString){
-		if(_InputManager.InputStay(InputString)){
-		}
-	}//*/
+	}
 }

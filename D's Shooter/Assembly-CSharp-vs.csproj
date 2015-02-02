@@ -51,6 +51,7 @@
      <Compile Include="Assets\Resouces\Scripts\Stage\GameCameraMove.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GameManager.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayer.cs" />
+     <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerDChanger.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerMover.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerShooter.cs" />
  <Reference Include="UnityEngine.UI">

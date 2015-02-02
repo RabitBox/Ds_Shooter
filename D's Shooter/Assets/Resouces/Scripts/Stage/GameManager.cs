@@ -29,4 +29,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	//void Update () {}
+
+	public void ChangeDimension(){_Dimension = (_Dimension == DimensionMode.Mode2D) ? DimensionMode.Mode3D : DimensionMode.Mode2D; }
 }
