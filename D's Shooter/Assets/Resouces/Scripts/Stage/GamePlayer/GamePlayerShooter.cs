@@ -32,9 +32,9 @@ public class GamePlayerShooter : MonoBehaviour {
 
 	void CreateShot(string InputString){
 		if(_InputManager.InputStay(InputString)){
-
+			Debug.Log("Shot Criating!");
 		}
-	}//*/
+	}
 
 	/*void CreateBomb(string InputString){
 		if(_InputManager.InputStay(InputString)){

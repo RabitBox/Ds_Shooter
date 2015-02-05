@@ -47,6 +47,6 @@ public class GamePlayer : MonoBehaviour {
 			}
 		}
 
-		Debug.Log(this.transform.rotation);
+		//Debug.Log(this.transform.rotation);
 	}
 }
