@@ -7,6 +7,11 @@ public class GamePlayerMover : MonoBehaviour {
 	private GamePlayer _GamePlayer;
 	[SerializeField] private float Speed = 5f;
 
+	[SerializeField] private float XTB;
+	[SerializeField] private float YTB;
+	[SerializeField] private float ZT;
+	[SerializeField] private float ZB;
+
 	// Use this for initialization
 	void Start () {
 		_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -52,6 +57,24 @@ public class GamePlayerMover : MonoBehaviour {
 
 	// 補正
 	void Revise(){
-		
+		float x = this.transform.position.x;
+		float y = this.transform.position.y;
+		float z = this.transform.position.z;
+		if(this.transform.position.x > XTB){
+			x = XTB;
+		}else if(this.transform.position.x < -XTB){
+			x = -XTB;
+		}
+		if(this.transform.position.y > YTB){
+			y = YTB;
+		}else if(this.transform.position.y < -YTB){
+			y = -YTB;
+		}
+		if(this.transform.position.z > ZT){
+			z = ZT;
+		}else if(this.transform.position.z < ZB){
+			z = ZB;
+		}
+		this.transform.position = new Vector3(x, y, z);
 	}
 }
