@@ -45,11 +45,11 @@ public class GamePlayerMover : MonoBehaviour {
 		Vector2 dir = _InputManager.Direction() * Speed;
 		switch(_GameManager.Dimension){
 		case DimensionMode.Mode2D:
-			this.rigidbody.velocity = new Vector3(dir.x, 0f, dir.y);
+			this.GetComponent<Rigidbody>().velocity = new Vector3(dir.x, 0f, dir.y);
 			break;
 			
 		case DimensionMode.Mode3D:
-			this.rigidbody.velocity = new Vector3(dir.x, dir.y, 0f);
+			this.GetComponent<Rigidbody>().velocity = new Vector3(dir.x, dir.y, 0f);
 			break;
 		}
 		Revise();
