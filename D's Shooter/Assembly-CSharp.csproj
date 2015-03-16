@@ -54,6 +54,8 @@
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerDChanger.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerMover.cs" />
      <Compile Include="Assets\Resouces\Scripts\Stage\GamePlayer\GamePlayerShooter.cs" />
+     <Compile Include="Assets\Resouces\Scripts\Title\CubeRotater.cs" />
+     <Compile Include="Assets\Resouces\Scripts\Title\TitleCameraMover.cs" />
      <None Include="Assets\Resouces\Shader\Transparent.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
