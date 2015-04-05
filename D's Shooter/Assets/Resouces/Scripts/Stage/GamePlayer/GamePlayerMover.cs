@@ -57,24 +57,24 @@ public class GamePlayerMover : MonoBehaviour {
 
 	// 補正
 	void Revise(){
-		float x = this.transform.position.x;
-		float y = this.transform.position.y;
-		float z = this.transform.position.z;
-		if(this.transform.position.x > XTB){
+		float x = this.transform.localPosition.x;
+		float y = this.transform.localPosition.y;
+		float z = this.transform.localPosition.z;
+		if(this.transform.localPosition.x > XTB){
 			x = XTB;
-		}else if(this.transform.position.x < -XTB){
+		}else if(this.transform.localPosition.x < -XTB){
 			x = -XTB;
 		}
-		if(this.transform.position.y > YTB){
+		if(this.transform.localPosition.y > YTB){
 			y = YTB;
-		}else if(this.transform.position.y < -YTB){
+		}else if(this.transform.localPosition.y < -YTB){
 			y = -YTB;
 		}
-		if(this.transform.position.z > ZT){
+		if(this.transform.localPosition.z > ZT){
 			z = ZT;
-		}else if(this.transform.position.z < ZB){
+		}else if(this.transform.localPosition.z < ZB){
 			z = ZB;
 		}
-		this.transform.position = new Vector3(x, y, z);
+		this.transform.localPosition = new Vector3(x, y, z);
 	}
 }

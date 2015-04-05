@@ -4,20 +4,18 @@ using System.Collections;
 public class GameCameraMove : MonoBehaviour {
 	private GameManager _GameManager;
 	private DimensionMode _BeforeMode;
-	private GameObject LookTarget;
+	private GameObject _LookTarget;
 	private int Counter = 0;			// カウントダウンタイマー
 	private int SET_COUNT = 30;
 	private Vector3 TargetPos2D = new Vector3(0, 9, 0);
-	private Vector3 TargetPos3D = new Vector3(0, 0, -10);
-	[SerializeField]private Vector3 Rot2D = new Vector3(0, 0, 0);
-	[SerializeField]private Vector3 Rot3D = new Vector3(90, 0, 0);
+	private Vector3 TargetPos3D = new Vector3(0, 0, -7);
 
 	public DimensionMode BeforeMode{get{return _BeforeMode;}}
 
 	// Use this for initialization
 	void Start () {
 		_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-		LookTarget = GameObject.Find("PlayManager");
+		_LookTarget = GameObject.Find("CameraTarget");
 		_BeforeMode = _GameManager.Dimension;
 	}
 	
@@ -26,6 +24,7 @@ public class GameCameraMove : MonoBehaviour {
 		DimensionMode NowMode = _GameManager.Dimension;
 
 		if(NowMode != _BeforeMode){NowMode = Move (NowMode);}
+		//this.transform.LookAt (_LookTarget.transform.position);
 
 		_BeforeMode = NowMode;
 	}
@@ -36,13 +35,15 @@ public class GameCameraMove : MonoBehaviour {
 		if(Counter > 0)Counter--;
 		switch(mode){
 		case DimensionMode.Mode2D:
-			this.transform.position = QuadOut((float)SET_COUNT, (float)(SET_COUNT-Counter),TargetPos2D, TargetPos3D);
+			this.transform.localPosition = QuadOut((float)SET_COUNT, (float)(SET_COUNT-Counter),TargetPos2D, TargetPos3D);
+			this.transform.localEulerAngles = new Vector3((float)Easing.QuadOut(SET_COUNT,SET_COUNT-Counter,90f,0f),0,0);
 			if(Counter > 0){return DimensionMode.Mode3D;}
 			return DimensionMode.Mode2D;
 			break;
 
 		case DimensionMode.Mode3D:
-			this.transform.position = QuadOut((float)SET_COUNT, (float)(SET_COUNT-Counter),TargetPos3D, TargetPos2D);
+			this.transform.localPosition = QuadOut((float)SET_COUNT, (float)(SET_COUNT-Counter),TargetPos3D, TargetPos2D);
+			this.transform.localEulerAngles = new Vector3((float)Easing.QuadOut(SET_COUNT,SET_COUNT-Counter,0f,90f),0,0);
 			if(Counter > 0){return DimensionMode.Mode2D;}
 			return DimensionMode.Mode3D;
 			break;
