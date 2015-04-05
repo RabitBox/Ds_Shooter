@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TitleCameraMover : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 	

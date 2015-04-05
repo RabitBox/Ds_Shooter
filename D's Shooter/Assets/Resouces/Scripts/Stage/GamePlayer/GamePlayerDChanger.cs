@@ -5,12 +5,14 @@ public class GamePlayerDChanger : MonoBehaviour {
 	private GameManager _GameManager;
 	private InputManager _InputManager;
 	private GamePlayer _GamePlayer;
+	private GameCameraMove _GameCameraMove;
 
 	// Use this for initialization
 	void Start () {
 		_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		_InputManager = GameObject.Find("GameManager").GetComponent<InputManager>();
 		_GamePlayer = this.gameObject.GetComponent<GamePlayer>();
+		_GameCameraMove = GameObject.Find("Main Camera").GetComponent<GameCameraMove>();
 	}
 	
 	// Update is called once per frame
@@ -31,8 +33,10 @@ public class GamePlayerDChanger : MonoBehaviour {
 	}
 
 	void ChangeDimension(string InputString){
-		if(_InputManager.InputDown(InputString)){
-			_GameManager.ChangeDimension();
+		if(_GameCameraMove.BeforeMode == _GameManager.Dimension){
+			if(_InputManager.InputDown(InputString)){
+				_GameManager.ChangeDimension();
+			}
 		}
 	}
 }

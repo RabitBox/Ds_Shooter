@@ -3,27 +3,31 @@ using System.Collections;
 
 public class GameCameraMove : MonoBehaviour {
 	private GameManager _GameManager;
-	private DimensionMode BeforeMode;
+	private DimensionMode _BeforeMode;
 	private GameObject LookTarget;
 	private int Counter = 0;			// カウントダウンタイマー
 	private int SET_COUNT = 30;
 	private Vector3 TargetPos2D = new Vector3(0, 9, 0);
 	private Vector3 TargetPos3D = new Vector3(0, 0, -10);
+	[SerializeField]private Vector3 Rot2D = new Vector3(0, 0, 0);
+	[SerializeField]private Vector3 Rot3D = new Vector3(90, 0, 0);
+
+	public DimensionMode BeforeMode{get{return _BeforeMode;}}
 
 	// Use this for initialization
 	void Start () {
 		_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		LookTarget = GameObject.Find("PlayManager");
-		BeforeMode = _GameManager.Dimension;
+		_BeforeMode = _GameManager.Dimension;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		DimensionMode NowMode = _GameManager.Dimension;
 
-		if(NowMode != BeforeMode){NowMode = Move (NowMode);}
+		if(NowMode != _BeforeMode){NowMode = Move (NowMode);}
 
-		BeforeMode = NowMode;
+		_BeforeMode = NowMode;
 	}
 
 
